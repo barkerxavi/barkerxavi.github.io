@@ -21,7 +21,7 @@
     }
 
     nav a {
-      float: left;
+        float: left;
       display: block;
       color: white;
       text-align: center;
@@ -47,27 +47,53 @@
 
     .recent-links h2 {
       margin-bottom: 10px;
+      text-align: center;
+      font-size: 60px;
     }
 
-    .recent-links ul {
-      list-style: none;
-      padding: 0;
+
+    .showreels {
+      margin-top: 20px;
     }
 
-    .recent-links li {
+    .showreels h2 {
       margin-bottom: 10px;
-    }
-
-    .recent-links a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    .recent-links a:hover {
-      text-decoration: underline;
+      text-align: center;
+      font-size: 60px;
     }
 
 
+    .grid_x2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      justify-items: center;
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card_x2 {
+        max-width: 450px;
+        max-height: 250px;
+        width: 100%;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    }
+
+    .card_x2:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card_x2 img {
+      width:450px;
+      height: auto;
+      display: block;
+    }
 
 
 
@@ -110,7 +136,7 @@
     }
 
     .card img {
-      width:fit-content;
+      width:300px;
       height: auto;
       display: block;
     }
@@ -127,9 +153,6 @@
       color: #333;
     }
 
-    .card h3 a:hover {
-        color: #007acc;
-    }
 
     
     .videoWrapper {

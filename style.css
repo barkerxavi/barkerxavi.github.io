@@ -30,15 +30,20 @@
     }
 
     nav a:hover {
-      background-color: #999999;
+      background-color: #838383;
     }
 
 
 
 
-    .main-content {
+    .showreelSection {
       padding: 20px;
-      background: #999999;
+      background: #838383;
+    }
+
+    .postsSection {
+      padding: 20px;
+      background: #b8b8b8;
     }
 
     .recent-links {

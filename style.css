@@ -1,7 +1,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #666666;
+      background: #333;
       color: #333;
     }
 
@@ -38,12 +38,12 @@
 
     .showreelSection {
       padding: 20px;
-      background: #838383;
+      background: #333;
     }
 
     .postsSection {
       padding: 20px;
-      background: #b8b8b8;
+      background: #333;
     }
 
     .recent-links {
@@ -158,6 +158,35 @@
       color: #333;
     }
 
+
+
+     .cardLink_NoText {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .cardLink_NoText .card_NoText {
+        cursor: pointer;
+    }
+
+
+    .card_NoText {
+        max-width: 300px;
+        max-height: 300px;
+        width: 100%;
+        background: #333;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    }
+
+    .card_NoText:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
 
     
     .videoWrapper {

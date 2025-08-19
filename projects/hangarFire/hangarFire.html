@@ -25,6 +25,9 @@
         <div class="sidebarTextBox">
             <p ><a class="sidebarLink" href="#CustomVectorFields">Custom Vector Fields In Houdini</a></p>
         </div>
+        <div class="sidebarTextBox">
+            <p ><a class="sidebarLink" href="#LargeScalePyro">Large Scale Pyro Simulations</a></p>
+        </div>
     </div>
 
     <div>
@@ -32,7 +35,7 @@
     <div class="videoContainer">
         <iframe 
             title="vimeo-player" 
-            src="https://www.youtube.com/embed/oaJdhHqp2Lw?autoplay=1&mute=1" 
+            src="https://www.youtube.com/embed/oaJdhHqp2Lw?autoplay=1&mute=1&loop=1" 
             frameborder="0" 
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   
             allowfullscreen
@@ -44,18 +47,23 @@
 
 
     <div class="center">
-        <p id="CustomVectorFields"><span>Custom Vector Fields in Houdini</span></p>
-        <p>To start its best to find some reference as its difficult to predict how a volume might move.</p>
-        <p>Once you have a good video or at least an image, figure out how the volume is moving and what is causing it (is there a fire causing an updraft or high windshear for example)</p>
-        <p>For me I found a video of a large oil fire that was twisting and skewed off to one side due to the wind.</p>
-        <p>Below you can see how I created velocity volumes to mimic the twisting motion.</p>
-        <a href="initalSwirlVectorCreation.gif"><img src=initalSwirlVectorCreation.gif class="card" ></a>
-        <p>At first i took inspiration from an impeller and used it to create a similar shape around the center of where I wanted my fire.</p>
-        <p>Then I converted it to points using the tangent as a velocity vector. </p>
-        <p>I moved these points in a random direction just a bit and then used a point replicate to fill out the area a bit.</p>
-        <p>The gif below just shows the same operaions more or less but with the velocity vectors displayed.</p>
-        <a href="initalSwirlVelocityCreation.gif"><img src=initalSwirlVelocityCreation.gif class="card" ></a>
-
+        <h1 id="CustomVectorFields"><span>Custom Vector Fields in Houdini</span></h1>
+        <p>To start its best to find some reference as its difficult to predict how a volume might move. Once you have a good video or at least an image, figure out how the volume is moving and what is causing it (is there a fire causing an updraft or high windshear for example) For me I found a video of a large oil fire that was twisting and skewed off to one side due to the wind. Below you can see how I created velocity volumes to mimic the twisting motion:</p>
+        <p><a href="initalSwirlVectorCreation.gif"><img src="initalSwirlVectorCreation.gif" class="card"></a></p>
+        <p>At first I took inspiration from an impeller and used it to create a similar shape around the center of where I wanted my fire, then I converted it to points using the tangent as a velocity vector. I moved these points in a random direction just a bit and then used a point replicate to fill out the area a bit. The gif below just shows the same operations more or less but with the velocity vectors displayed.</p>
+        <p><a href="initalSwirlVelocityCreation.gif"><img src="initalSwirlVelocityCreation.gif" class="card"></a></p>
+        <p>I then did a similar thing to create the wind getting stronger the higher up the volume goes.</p>
+        <p><a href="initalWindVectorCreation.gif"><img src="initalWindVectorCreation.gif" class="card"></a></p>
+        <p>At the end of these methods you can scatter points in the bounding box of the previous points, transferring the velocity from the nearest point, this is now ready to rasterize into a volume and feed into a solver.</p>
+        <p><br></p>
+        <p><br></p>
+        <p><br></p>
+        <h1 id="LargeScalePyro">Large Scale Pyro Simulations</h1>
+        <p>Large scale simulations in Houdini are pretty simple with a few things that really help to make things run smoothly.</p>
+        <p>The most pressing issue is usually either do I have enough ram/vram or that the sim takes too long. The best way to mitigate having too little ram is to make the simulation less detailed, often motion blur, compositing and any number of other factors can make up for smaller simulation.&nbsp;</p>
+        <p>If it has to be that resolution and size, there are other methods but these will make the sim time longer or have other issues.</p>
+        <p>The first is to make sure you have a page file. On windows this is a space reserved for putting data that can&apos;t fit in ram. You most likely have one already setup however you can change the size and number of them. For instance if you have a C: drive and other SSDs then it could be help having large page files on several of them. These however are quite taxing on the SSDs and could shorten their life, this does not work on HDDs as they are too slow and more prone to failure. This will allow your computer to overflow on ram more than previously, but it will be much slower than reading directly from RAM so it is not recommended if you can avoid it.</p>
+        <p>The other method I used a lot is Frustrum Culling, Frustrum Culling removes objects or in this case voxels outside the camera can it can be used to reduce the computation especially in OpenCL calculations. Its quite easy to setup using a VDB clip node and referencing the camera in the Camera field (its also good to add some padding so the camera doesn&apos;t see any of the clipping)</p>
     </div>
 
   </main>  

@@ -58,6 +58,8 @@
         <p><br></p>
         <p><br></p>
         <p><br></p>
+    </div>
+    <div class="center">
         <h1 id="LargeScalePyro">Large Scale Pyro Simulations</h1>
         <p>Large scale simulations in Houdini are pretty simple with a few things that really help to make things run smoothly.</p>
         <p>The most pressing issue is usually either do I have enough ram/vram or that the sim takes too long. The best way to mitigate having too little ram is to make the simulation less detailed, often motion blur, compositing and any number of other factors can make up for smaller simulation.&nbsp;</p>
@@ -65,7 +67,6 @@
         <p>The first is to make sure you have a page file. On windows this is a space reserved for putting data that can&apos;t fit in ram. You most likely have one already setup however you can change the size and number of them. For instance if you have a C: drive and other SSDs then it could be help having large page files on several of them. These however are quite taxing on the SSDs and could shorten their life, this does not work on HDDs as they are too slow and more prone to failure. This will allow your computer to overflow on ram more than previously, but it will be much slower than reading directly from RAM so it is not recommended if you can avoid it.</p>
         <p>The other method I used a lot is Frustrum Culling, Frustrum Culling removes objects or in this case voxels outside the camera can it can be used to reduce the computation especially in OpenCL calculations. Its quite easy to setup using a VDB clip node and referencing the camera in the Camera field (its also good to add some padding so the camera doesn&apos;t see any of the clipping)</p>
     </div>
-
   </main>  
 </body>
 </html>

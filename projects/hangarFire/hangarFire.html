@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangar Fire</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Hangar Fire</h1>
+    <p>A project that took too long</p>
+  </header>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../showreels.html">Showreels</a>
+    <a href="../../projects.html">Projects</a>
+    <a href="../../blog.html">Blog</a>
+    <a href="../../contact.html">Contact</a>
+  </nav>
+  <div class="main">
+    <div class="sidebar">
+        <p>Page Contents</p>
+        <div class="sidebarTextBox">
+            <p ><a class="sidebarLink" href="#CustomVectorFields">Custom Vector Fields In Houdini</a></p>
+        </div>
+    </div>
+
+    <div>
+        <div class="videoWrapper">
+    <div class="videoContainer">
+        <iframe 
+            title="vimeo-player" 
+            src="https://www.youtube.com/embed/oaJdhHqp2Lw?autoplay=1&mute=1" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   
+            allowfullscreen
+        ></iframe>
+    </div>
+
+    </div>
+
+
+
+    <div class="center">
+        <p id="CustomVectorFields"><span>Custom Vector Fields in Houdini</span></p>
+        <p>To start its best to find some reference as its difficult to predict how a volume might move.</p>
+        <p>Once you have a good video or at least an image, figure out how the volume is moving and what is causing it (is there a fire causing an updraft or high windshear for example)</p>
+        <p>For me I found a video of a large oil fire that was twisting and skewed off to one side due to the wind.</p>
+        <p>Below you can see how I created velocity volumes to mimic the twisting motion.</p>
+        <a href="initalSwirlVectorCreation.gif"><img src=initalSwirlVectorCreation.gif class="card" ></a>
+        <p>At first i took inspiration from an impeller and used it to create a similar shape around the center of where I wanted my fire.</p>
+        <p>Then I converted it to points using the tangent as a velocity vector. </p>
+        <p>I moved these points in a random direction just a bit and then used a point replicate to fill out the area a bit.</p>
+        <p>The gif below just shows the same operaions more or less but with the velocity vectors displayed.</p>
+        <a href="initalSwirlVelocityCreation.gif"><img src=initalSwirlVelocityCreation.gif class="card" ></a>
+
+    </div>
+
+  </main>  
+</body>
+</html>
